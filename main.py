@@ -60,10 +60,10 @@ def on_press(key):
 def on_release(key):
     pass
 
-clearCache() # Supprime le cache au début du programme
+# clearCache() # Supprime le cache au début du programme
 
 # Collect events until released
 with keyboard.Listener(on_press=on_press,on_release=on_release) as listener:
     listener.join()
 
-clearCache() # Supprime le cache à la fin du programme
+# clearCache() # Supprime le cache à la fin du programme
