@@ -1,0 +1,101 @@
+﻿<Window x:Class="BlindHelper.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BlindHelper"
+        mc:Ignorable="d"
+        Title="BlindHelper" Height="720" Width="1280">
+    <Grid ShowGridLines="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Row="0" ShowGridLines="True">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="0" Margin="50">
+                <TextBlock Style="{DynamicResource CustomTxtBlock}">
+                    BlindHelper
+                </TextBlock>
+            </Border>
+
+            <Border Grid.Column="1" Margin="100,0,0,0">
+                <Grid ShowGridLines="True">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Border Grid.Column="0" Margin="50,40">
+                        <Rectangle>
+                            <Rectangle.Fill>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                    <GradientStop Color="#000EFF" Offset="0"/>
+                                    <GradientStop Color="#00F4FF" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Rectangle.Fill>
+                        </Rectangle>
+                    </Border>
+
+                    <Border Grid.Column="1" Margin="50,40">
+                        <Rectangle>
+                            <Rectangle.Fill>
+                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                    <GradientStop Color="#FF0011" Offset="0"/>
+                                    <GradientStop Color="#FF0057" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Rectangle.Fill>
+                        </Rectangle>
+                    </Border>
+                </Grid>
+            </Border>
+        </Grid>
+
+        <Border Grid.Row="1">
+            <Slider Style="{DynamicResource SizeSliderTemplate}"
+                x:Name="SizeSlider"
+                Margin="0"
+                Maximum="6"
+                Minimum="0"
+                TickFrequency="1"
+                Value="6"
+                TickPlacement="BottomRight"
+                BorderThickness="10"
+                IsSnapToTickEnabled="True"
+                IsMoveToPointEnabled="True"
+                VerticalAlignment="Center"
+                ValueChanged="SizeSlider_OnValueChanged"/>
+        </Border>
+        
+        <Border Grid.Row="2">
+            <Slider Style="{DynamicResource SizeSliderTemplate}"
+                    x:Name="FontSlider"
+                    Margin="0"
+                    Maximum="2"
+                    Minimum="0"
+                    TickFrequency="1"
+                    Value="1"
+                    TickPlacement="BottomRight"
+                    BorderThickness="10"
+                    IsSnapToTickEnabled="True"
+                    IsMoveToPointEnabled="True"
+                    VerticalAlignment="Center"
+                    ValueChanged="SizeSlider_OnValueChanged"/>
+        </Border>
+    </Grid>
+</Window>
