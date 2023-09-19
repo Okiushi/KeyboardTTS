@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 using System.Windows.Threading;
@@ -19,28 +18,20 @@ namespace BlindHelper
 
         public int WindowHeight
         {
-            get => _height;
             set
             {
-                if (value != _height)
-                {
-                    _height = value;
-                    if (PropertyChanged != null)
-                        PropertyChanged(this, new PropertyChangedEventArgs("WindowHeight"));
-                }
+                if (value == _height) return;
+                _height = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("WindowHeight"));
             }
         }
         public int WindowWidth
         {
-            get => _width;
             set
             {
-                if (value != _width)
-                {
-                    _width = value;
-                    if (PropertyChanged != null)
-                        PropertyChanged(this, new PropertyChangedEventArgs("WindowWidth"));
-                }
+                if (value == _width) return;
+                _width = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("WindowWidth"));
             }
         }
 
@@ -48,7 +39,7 @@ namespace BlindHelper
         {
             new FontFamily(new Uri("pack://application:,,,/Fonts/"), "./#Tiresias Infofont"),
             new FontFamily(new Uri("pack://application:,,,/Fonts/"), "./#Luciole"),
-            new FontFamily(new Uri("pack://application:,,,/Fonts/"), "./#HelveticaNeue"),
+            new FontFamily(new Uri("pack://application:,,,/Fonts/"), "./#HelveticaNeue")
         };
 
         public MainWindow()
@@ -69,8 +60,8 @@ namespace BlindHelper
             double screenHeight = SystemParameters.PrimaryScreenHeight;
             double windowWidth = Width;
             double windowHeight = Height;
-            Left = (screenWidth / 2) - (windowWidth / 2);
-            Top = (screenHeight / 2) - (windowHeight / 2);
+            Left = screenWidth / 2 - windowWidth / 2;
+            Top = screenHeight / 2 - windowHeight / 2;
         }
         
         private void Window_OnInitialized(object sender, EventArgs e)
@@ -136,8 +127,6 @@ namespace BlindHelper
                 // Set the selected font family to the TextBlock
                 FontFamily = _fontFamilies[selectedFontIndex];
             }
-            
-            
         }
 
         private void ReduceButton_OnClick(object sender, RoutedEventArgs e)
