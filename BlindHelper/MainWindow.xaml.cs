@@ -82,8 +82,12 @@ namespace BlindHelper
             // the tick is the event that happens at the end of the timer
             timer.Tick += (s, args) =>
             {
+                Resize_Window(factor: 0.7d);
+                Console.WriteLine(@"Window Resized");
+                
                 CenterWindowOnScreen();
                 Console.WriteLine(@"Window Centered");
+                
                 // after tick is raised, stop the timer (to prevent loop)
                 timer.Stop();
             };
@@ -95,22 +99,32 @@ namespace BlindHelper
 
         private void SizeSlider_OnDragCompleted(object sender, DragCompletedEventArgs e)
         {
-            double screenWidth = SystemParameters.PrimaryScreenWidth;
-            double screenHeight = SystemParameters.PrimaryScreenHeight;
 
             double newValue = SizeSlider.Value;
             
             Console.WriteLine($@"Slider Value: {newValue}");
             
-            Height = (int) (screenHeight * newValue);
-            Width = (int) (screenWidth * newValue);
+            Resize_Window(factor: newValue);
+            
             CenterWindowOnScreen();
         }
 
-        // private void FontSlider_OnValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
-        // {
-        //     Console.WriteLine($@"Font Slider Value: {e.NewValue}");
-        // }
+        private void Resize_Window(double factor)
+        {
+            if (Math.Abs(factor - 1) < 0.000000001)  // fix for double precision, equivalent to factor == 1
+            {
+                WindowState = WindowState.Maximized;
+            }
+            else
+            {
+                WindowState = WindowState.Normal;
+                double screenWidth = SystemParameters.PrimaryScreenWidth;
+                double screenHeight = SystemParameters.PrimaryScreenHeight;
+            
+                Height = (int) (screenHeight * factor);
+                Width = (int) (screenWidth * factor);
+            }
+        }
         
         private void FontSlider_OnValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {

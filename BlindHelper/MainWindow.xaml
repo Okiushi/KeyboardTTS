@@ -11,7 +11,8 @@
         WindowStartupLocation="CenterScreen" 
         WindowStyle="SingleBorderWindow"
         Initialized="Window_OnInitialized"
-        fluentWpf:AcrylicWindow.Enabled="True" fluentWpf:AcrylicWindow.TintColor="AliceBlue">
+        fluentWpf:AcrylicWindow.Enabled="True" fluentWpf:AcrylicWindow.TintColor="AliceBlue"
+        fluentWpf:PointerTracker.Enabled="True">
     
     <Grid x:Name="MainGrid" ShowGridLines="True">
         <Grid.RowDefinitions>
@@ -36,7 +37,7 @@
                 <Viewbox>
                     <TextBlock x:Name="LogoTxt" 
                                Style="{DynamicResource CustomTxtBlock}"
-                               FontFamily="Impact"> <!-- ./#Luciole-Regular  -->
+                               FontFamily="Luciole">
                         BlindHelper
                     </TextBlock>
                 </Viewbox>
@@ -82,7 +83,7 @@
                 x:Name="SizeSlider"
                 Margin="0"
                 Maximum="1"
-                Minimum="0.3"
+                Minimum="0.4"
                 TickFrequency="0.1"
                 Value="0.7"
                 TickPlacement="BottomRight"
