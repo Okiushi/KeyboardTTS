@@ -45,3 +45,4 @@ C:\Users\User\RiderProjects\KeyboardTTS\BlindHelper\obj\Debug\BlindHelper.pdb
 C:\Users\User\RiderProjects\KeyboardTTS\BlindHelper\bin\Debug\Fonts\HelveticaNeueMed.ttf
 C:\Users\User\RiderProjects\KeyboardTTS\BlindHelper\bin\Debug\FluentWPF.dll
 C:\Users\User\RiderProjects\KeyboardTTS\BlindHelper\obj\Debug\BlindHelper.csproj.CopyComplete
+C:\Users\User\RiderProjects\KeyboardTTS\BlindHelper\obj\Debug\Styles\Buttons.baml

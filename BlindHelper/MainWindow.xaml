@@ -12,7 +12,10 @@
         WindowStyle="SingleBorderWindow"
         Initialized="Window_OnInitialized"
         fluentWpf:AcrylicWindow.Enabled="True" fluentWpf:AcrylicWindow.TintColor="AliceBlue"
-        fluentWpf:PointerTracker.Enabled="True">
+        fluentWpf:PointerTracker.Enabled="True" fluentWpf:AcrylicWindow.FallbackColor="AliceBlue"
+        fluentWpf:AcrylicWindow.TitleBarMode="Extend" fluentWpf:AcrylicWindow.NoiseOpacity="0.02"
+        fluentWpf:AcrylicWindow.AcrylicAccentState="BlurBehind"
+        FontFamily="./Fonts/#Luciole">
     
     <Grid x:Name="MainGrid" ShowGridLines="True">
         <Grid.RowDefinitions>
@@ -24,7 +27,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.Row="0" ShowGridLines="True">
+        <Grid Grid.Row="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
@@ -44,7 +47,7 @@
             </Border>
 
             <Border Grid.Column="1" Margin="100,0,0,0">
-                <Grid ShowGridLines="True">
+                <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
@@ -54,44 +57,50 @@
                     </Grid.ColumnDefinitions>
 
                     <Border Grid.Column="0" Margin="50,40">
-                        <Rectangle>
-                            <Rectangle.Fill>
-                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                                    <GradientStop Color="#000EFF" Offset="0"/>
-                                    <GradientStop Color="#00F4FF" Offset="1"/>
-                                </LinearGradientBrush>
-                            </Rectangle.Fill>
-                        </Rectangle>
+                        <Button Name="ReduceButton"
+                            Style="{StaticResource ButtonBlueStyle}"
+                            Click="ReduceButton_OnClick">
+                            Reduire
+                        </Button>
                     </Border>
 
                     <Border Grid.Column="1" Margin="50,40">
-                        <Rectangle>
-                            <Rectangle.Fill>
-                                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                                    <GradientStop Color="#FF0011" Offset="0"/>
-                                    <GradientStop Color="#FF0057" Offset="1"/>
-                                </LinearGradientBrush>
-                            </Rectangle.Fill>
-                        </Rectangle>
+                        <Button Name="CloseButton"
+                            Style="{StaticResource ButtonRedStyle}"
+                            Click="CloseButton_OnClick">
+                            Fermer
+                        </Button>
                     </Border>
                 </Grid>
             </Border>
         </Grid>
 
         <Border Grid.Row="1">
-            <Slider Style="{DynamicResource SizeSliderTemplate}"
-                x:Name="SizeSlider"
-                Margin="0"
-                Maximum="1"
-                Minimum="0.4"
-                TickFrequency="0.1"
-                Value="0.7"
-                TickPlacement="BottomRight"
-                BorderThickness="10"
-                IsSnapToTickEnabled="True"
-                IsMoveToPointEnabled="True"
-                VerticalAlignment="Center"
-                Thumb.DragCompleted="SizeSlider_OnDragCompleted"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                
+                <Viewbox Grid.Row="0">
+                    <Label HorizontalAlignment="Center" FontSize="5">Taille de la fenêtre</Label>
+                </Viewbox>
+                
+                <Slider Grid.Row="1" Style="{DynamicResource SizeSliderTemplate}"
+                        x:Name="SizeSlider"
+                        Margin="0"
+                        Maximum="1"
+                        Minimum="0.4"
+                        TickFrequency="0.1"
+                        Value="0.7"
+                        TickPlacement="BottomRight"
+                        BorderThickness="10"
+                        IsSnapToTickEnabled="True"
+                        IsMoveToPointEnabled="True"
+                        VerticalAlignment="Center"
+                        KeyboardNavigation.TabNavigation="None"
+                        Thumb.DragCompleted="SizeSlider_OnDragCompleted"/>
+            </Grid>
         </Border>
         
         <Border Grid.Row="2">
@@ -107,6 +116,7 @@
                     IsSnapToTickEnabled="True"
                     IsMoveToPointEnabled="True"
                     VerticalAlignment="Center"
+                    KeyboardNavigation.TabNavigation="None"
                     ValueChanged="FontSlider_OnValueChanged"/>
         </Border>
     </Grid>

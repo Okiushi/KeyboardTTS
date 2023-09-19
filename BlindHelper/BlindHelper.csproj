@@ -65,6 +65,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Styles\Buttons.xaml" />
     <Page Include="Styles\CustomFonts.xaml" />
     <Page Include="Styles\FontSliderTemplate.xaml">
       <Generator>MSBuild:Compile</Generator>

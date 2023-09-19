@@ -1,0 +1,123 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                
+    <ControlTemplate x:Key="BlueButtonControlTemplate" TargetType="Button">
+        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
+                SnapsToDevicePixels="True">
+            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </Border>
+        <ControlTemplate.Triggers>
+            <!-- Mouse over trigger -->
+            <Trigger Property="IsMouseOver" Value="True">
+                <Trigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetProperty="(Button.Background).(GradientBrush.GradientStops)[0].Color" To="#4340FF" Duration="0:0:0.5"/>
+                            <ColorAnimation Storyboard.TargetProperty="(Button.Background).(GradientBrush.GradientStops)[1].Color" To="#205C80" Duration="0:0:0.5"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.EnterActions>
+                <Trigger.ExitActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetProperty="(Button.Background).(GradientBrush.GradientStops)[0].Color" To="#0600FF" Duration="0:0:0.5"/>
+                            <ColorAnimation Storyboard.TargetProperty="(Button.Background).(GradientBrush.GradientStops)[1].Color" To="#004F80" Duration="0:0:0.5"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.ExitActions>
+            </Trigger>
+            <!-- Focused trigger -->
+            <Trigger Property="IsFocused" Value="True">
+                <Trigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard RepeatBehavior="Forever">
+                            <ColorAnimation Storyboard.TargetProperty="(Button.Background).(GradientBrush.GradientStops)[0].Color" To="Black" Duration="0:0:0.35"/>
+                            <ColorAnimation Storyboard.TargetProperty="(Button.Background).(GradientBrush.GradientStops)[1].Color" To="White" Duration="0:0:0.35"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.EnterActions>
+                <Trigger.ExitActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetProperty="(Button.Background).(GradientBrush.GradientStops)[0].Color" To="#0600FF" Duration="0:0:0.5"/>
+                            <ColorAnimation Storyboard.TargetProperty="(Button.Background).(GradientBrush.GradientStops)[1].Color" To="#004F80" Duration="0:0:0.5"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.ExitActions>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+    
+    <ControlTemplate x:Key="RedButtonControlTemplate" TargetType="Button">
+        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
+                SnapsToDevicePixels="True">
+            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+        </Border>
+        <ControlTemplate.Triggers>
+            <!-- Mouse over trigger -->
+            <Trigger Property="IsMouseOver" Value="True">
+                <Trigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetProperty="(Button.Background).(GradientBrush.GradientStops)[0].Color" To="#FF4340" Duration="0:0:0.5"/>
+                            <ColorAnimation Storyboard.TargetProperty="(Button.Background).(GradientBrush.GradientStops)[1].Color" To="#803B20" Duration="0:0:0.5"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.EnterActions>
+                <Trigger.ExitActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetProperty="(Button.Background).(GradientBrush.GradientStops)[0].Color" To="#FF0000" Duration="0:0:0.5"/>
+                            <ColorAnimation Storyboard.TargetProperty="(Button.Background).(GradientBrush.GradientStops)[1].Color" To="#802600" Duration="0:0:0.5"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.ExitActions>
+            </Trigger>
+            <!-- Focused trigger -->
+            <Trigger Property="IsFocused" Value="True">
+                <Trigger.EnterActions>
+                    <BeginStoryboard>
+                        <Storyboard RepeatBehavior="Forever">
+                            <ColorAnimation Storyboard.TargetProperty="(Button.Background).(GradientBrush.GradientStops)[0].Color" To="Black" Duration="0:0:0.35"/>
+                            <ColorAnimation Storyboard.TargetProperty="(Button.Background).(GradientBrush.GradientStops)[1].Color" To="White" Duration="0:0:0.35"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.EnterActions>
+                <Trigger.ExitActions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetProperty="(Button.Background).(GradientBrush.GradientStops)[0].Color" To="#FF0000" Duration="0:0:0.5"/>
+                            <ColorAnimation Storyboard.TargetProperty="(Button.Background).(GradientBrush.GradientStops)[1].Color" To="#802600" Duration="0:0:0.5"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </Trigger.ExitActions>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <!-- Normal button style -->
+    <Style x:Key="ButtonBlueStyle" TargetType="Button">
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#0600FF" Offset="0" />
+                    <GradientStop Color="#004F80" Offset="1" />
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template" Value="{StaticResource BlueButtonControlTemplate}" />
+    </Style>
+    
+    <Style x:Key="ButtonRedStyle" TargetType="Button">
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="#FF0000" Offset="0" />
+                    <GradientStop Color="#802600" Offset="1" />
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template" Value="{StaticResource RedButtonControlTemplate}" />
+    </Style>
+    
+</ResourceDictionary>

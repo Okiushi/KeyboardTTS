@@ -16,6 +16,7 @@ namespace BlindHelper
     public partial class MainWindow
     {
         private int _height, _width;
+
         public int WindowHeight
         {
             get => _height;
@@ -29,9 +30,6 @@ namespace BlindHelper
                 }
             }
         }
-
-        public List<TextBlock> TextBlocks;
-        
         public int WindowWidth
         {
             get => _width;
@@ -45,17 +43,18 @@ namespace BlindHelper
                 }
             }
         }
-        
+
+        private readonly List<FontFamily> _fontFamilies = new List<FontFamily>
+        {
+            new FontFamily(new Uri("pack://application:,,,/Fonts/"), "./#Tiresias Infofont"),
+            new FontFamily(new Uri("pack://application:,,,/Fonts/"), "./#Luciole"),
+            new FontFamily(new Uri("pack://application:,,,/Fonts/"), "./#HelveticaNeue"),
+        };
+
         public MainWindow()
         {
             InitializeComponent();
-            TextBlocks = new List<TextBlock>
-            {
-                LogoTxt,
-            };
-            
-            
-            
+
             DataContext = this;
             WindowHeight = 400;
             WindowWidth = 800;
@@ -131,20 +130,24 @@ namespace BlindHelper
             int selectedFontIndex = (int)FontSlider.Value;
 
             // Define an array of font families
-
-            List<FontFamily> fontFamilies = new List<FontFamily>
-            {
-                new FontFamily(new Uri("pack://application:,,,/Fonts/"), "./#Tiresias Infofont"),
-                new FontFamily(new Uri("pack://application:,,,/Fonts/"), "./#Luciole"),
-                new FontFamily(new Uri("pack://application:,,,/Fonts/"), "./#HelveticaNeue"),
-            };
-            if (selectedFontIndex >= 0 && selectedFontIndex < fontFamilies.Count)
+            
+            if (selectedFontIndex >= 0 && selectedFontIndex < _fontFamilies.Count)
             {
                 // Set the selected font family to the TextBlock
-                LogoTxt.FontFamily = fontFamilies[selectedFontIndex];
+                FontFamily = _fontFamilies[selectedFontIndex];
             }
             
             
+        }
+
+        private void ReduceButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine(@"Reduce Button Clicked");
+        }
+
+        private void CloseButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine(@"Close Button Clicked");
         }
     }
 }
