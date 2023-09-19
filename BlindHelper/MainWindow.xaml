@@ -60,6 +60,11 @@
                         <Button Name="ReduceButton"
                             Style="{StaticResource ButtonBlueStyle}"
                             Click="ReduceButton_OnClick">
+                            
+                            <!-- <Button.Effect> -->
+                            <!--     <DropShadowEffect Color="Black" Direction="330" ShadowDepth="10" Opacity="0.5" BlurRadius="60" /> -->
+                            <!-- </Button.Effect> -->
+                            
                             Reduire
                         </Button>
                     </Border>
@@ -96,7 +101,6 @@
                         TickPlacement="BottomRight"
                         BorderThickness="10"
                         IsSnapToTickEnabled="True"
-                        IsMoveToPointEnabled="True"
                         VerticalAlignment="Center"
                         KeyboardNavigation.TabNavigation="None"
                         Thumb.DragCompleted="SizeSlider_OnDragCompleted"/>
