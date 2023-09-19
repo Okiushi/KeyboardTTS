@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Code\CSharp\KeyboardTTS\BlindHelper\obj\Release\
+C:\Users\User\RiderProjects\KeyboardTTS\BlindHelper\obj\Release\
 BlindHelper
 none
 false
 TRACE
-D:\Code\CSharp\KeyboardTTS\BlindHelper\App.xaml
-52027677303
-2-958577740
+C:\Users\User\RiderProjects\KeyboardTTS\BlindHelper\App.xaml
+6-455882682
+3-147668838
 4614991736
-9-1286470197
-MainWindow.xaml;Styles\CustomFonts.xaml;Styles\FontSliderTemplate.xaml;Styles\SizeSliderTemplate.xaml;Styles\TextBlockStyle.xaml;
+10-573629208
+MainWindow.xaml;Styles\Buttons.xaml;Styles\CustomFonts.xaml;Styles\FontSliderTemplate.xaml;Styles\SizeSliderTemplate.xaml;Styles\TextBlockStyle.xaml;
 
-False
+True
 

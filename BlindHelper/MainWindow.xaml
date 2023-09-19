@@ -10,12 +10,12 @@
         Height="{Binding WindowHeight, Mode=TwoWay}" Width="{Binding WindowWidth, Mode=TwoWay}"
         WindowStartupLocation="CenterScreen" 
         WindowStyle="SingleBorderWindow"
-        Initialized="Window_OnInitialized"
         fluentWpf:AcrylicWindow.Enabled="True" fluentWpf:AcrylicWindow.TintColor="AliceBlue"
         fluentWpf:PointerTracker.Enabled="True" fluentWpf:AcrylicWindow.FallbackColor="AliceBlue"
         fluentWpf:AcrylicWindow.TitleBarMode="Extend" fluentWpf:AcrylicWindow.NoiseOpacity="0.02"
         fluentWpf:AcrylicWindow.AcrylicAccentState="BlurBehind"
-        FontFamily="./Fonts/#Luciole">
+        FontFamily="./Fonts/#Luciole"
+        Initialized="Window_OnInitialized">
     
     <Grid x:Name="MainGrid" ShowGridLines="True">
         <Grid.RowDefinitions>

@@ -46,3 +46,4 @@ C:\Users\User\RiderProjects\KeyboardTTS\BlindHelper\bin\Debug\Fonts\HelveticaNeu
 C:\Users\User\RiderProjects\KeyboardTTS\BlindHelper\bin\Debug\FluentWPF.dll
 C:\Users\User\RiderProjects\KeyboardTTS\BlindHelper\obj\Debug\BlindHelper.csproj.CopyComplete
 C:\Users\User\RiderProjects\KeyboardTTS\BlindHelper\obj\Debug\Styles\Buttons.baml
+C:\Users\User\RiderProjects\KeyboardTTS\BlindHelper\bin\Debug\Main.ico

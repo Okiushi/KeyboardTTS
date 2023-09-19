@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 using System.Windows;
 using System.Windows.Controls.Primitives;
-using System.Windows.Media;
+using System.Windows.Forms;
 using System.Windows.Threading;
+using FontFamily = System.Windows.Media.FontFamily;
 
 
 namespace BlindHelper
@@ -45,6 +47,16 @@ namespace BlindHelper
         public MainWindow()
         {
             InitializeComponent();
+            
+            NotifyIcon ni = new NotifyIcon();
+            ni.Icon = new Icon("Main.ico");
+            ni.Visible = true;
+            ni.Click += 
+                delegate
+                {
+                    Show();
+                    WindowState = WindowState.Normal;
+                };
 
             DataContext = this;
             WindowHeight = 400;
