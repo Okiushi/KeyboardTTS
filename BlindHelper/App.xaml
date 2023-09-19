@@ -13,7 +13,11 @@
                 <ResourceDictionary 
                     Source="/Styles/SizeSliderTemplate.xaml"/>
                 <ResourceDictionary 
+                    Source="/Styles/FontSliderTemplate.xaml"/>
+                <ResourceDictionary 
                     Source="/Styles/CustomFonts.xaml"/>
+                <ResourceDictionary 
+                    Source="pack://application:,,,/FluentWPF;component/Styles/Controls.xaml" />
             </ResourceDictionary.MergedDictionaries>
             <FontFamily x:Key="Tiresias">./Fonts/Tiresias.ttf</FontFamily>
             <FontFamily x:Key="Luciole">./Fonts/Luciole-Regular.ttf</FontFamily>

@@ -4,9 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BlindHelper"
+        xmlns:fluentWpf="clr-namespace:SourceChord.FluentWPF;assembly=FluentWPF"
         mc:Ignorable="d"
-        Title="BlindHelper" Height="{Binding WindowHeight, Mode=TwoWay}" Width="{Binding WindowWidth, Mode=TwoWay}"
-        WindowStartupLocation="CenterScreen" Initialized="Window_OnInitialized">
+        Title="BlindHelper" 
+        Height="{Binding WindowHeight, Mode=TwoWay}" Width="{Binding WindowWidth, Mode=TwoWay}"
+        WindowStartupLocation="CenterScreen" 
+        WindowStyle="SingleBorderWindow"
+        Initialized="Window_OnInitialized"
+        fluentWpf:AcrylicWindow.Enabled="True" fluentWpf:AcrylicWindow.TintColor="AliceBlue">
     
     <Grid x:Name="MainGrid" ShowGridLines="True">
         <Grid.RowDefinitions>
@@ -79,7 +84,7 @@
                 Maximum="1"
                 Minimum="0.3"
                 TickFrequency="0.1"
-                Value="0.4"
+                Value="0.7"
                 TickPlacement="BottomRight"
                 BorderThickness="10"
                 IsSnapToTickEnabled="True"
@@ -89,7 +94,7 @@
         </Border>
         
         <Border Grid.Row="2">
-            <Slider Style="{DynamicResource SizeSliderTemplate}"
+            <Slider Style="{DynamicResource FontSliderTemplate}"
                     x:Name="FontSlider"
                     Margin="0"
                     Maximum="2"

@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.IO;
-using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
-using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Threading;
 
@@ -120,20 +117,20 @@ namespace BlindHelper
             int selectedFontIndex = (int)FontSlider.Value;
 
             // Define an array of font families
-            // string[] fontFamilies = { "Fonts/Tiresias.ttf", "Fonts/Luciole-Regular.ttf", "Verdana" };
-
 
             List<FontFamily> fontFamilies = new List<FontFamily>
             {
-                new FontFamily("Impact"),
-                new FontFamily("Luciole-Regular"),
-                new FontFamily("Impact")
+                new FontFamily(new Uri("pack://application:,,,/Fonts/"), "./#Tiresias Infofont"),
+                new FontFamily(new Uri("pack://application:,,,/Fonts/"), "./#Luciole"),
+                new FontFamily(new Uri("pack://application:,,,/Fonts/"), "./#HelveticaNeue"),
             };
             if (selectedFontIndex >= 0 && selectedFontIndex < fontFamilies.Count)
             {
                 // Set the selected font family to the TextBlock
                 LogoTxt.FontFamily = fontFamilies[selectedFontIndex];
             }
+            
+            
         }
     }
 }
