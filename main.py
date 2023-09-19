@@ -1,8 +1,52 @@
-# -*- coding: utf-8 -*-
+import os
+import sys
+import getopt
+import signal
+from pynput import keyboard
+from gtts import gTTS
+from magicsound import magicsound
 
-# Installation des modules nécaissaires
+# Clear cache
+def clearcache():
+    for f in os.listdir('cache'):
+        os.remove(os.path.join('cache', f))
 
-import os  # Importe le modul de gestion des commandes système
+def terminate_process(process_name):
+    try:
+        #Réccupère les PID du processus
+        pid_list = os.popen(f'pgrep -f {process_name}').read().splitlines()
+        
+        # Envoie un taskkill à chaque PID récupéré
+        for pid in pid_list:
+            os.kill(int(pid), signal.SIGTERM)
+        print(f'Terminated {process_name} successfully.')
+    except Exception as e:
+        print(f'An error occurred: {e}')
+    os._exit(0)
+
+def restart_process(process_name):
+    try:
+        #Réccupère les PID du processus
+        pid_list = os.popen(f'pgrep -f {process_name}').read().splitlines()
+        
+        # Envoie un taskkill à chaque PID récupéré
+        for pid in pid_list:
+            os.kill(int(pid), signal.SIGTERM)
+        print(f'Terminated {process_name} successfully.')
+        clearCache()
+        os.system(f'python {process_name}')
+    except Exception as e:
+        print(f'An error occurred: {e}')
+    os._exit(0)
+
+opts, args = getopt.getopt(sys.argv[1:], "hm:", ["mode="])
+
+for opt, arg in opts:
+    if(opt == '-m' or opt == '--mode'):
+        if(arg == 'stop'):
+            terminate_process('main.py')
+        elif(arg == 'restart'):
+            restart_process('main.py')
 
 try:  # Importe le modul de récupération des touches du clavier
     from pynput import keyboard
@@ -25,7 +69,7 @@ except:  # Si le module n'est pas installé, on l'installe et on l'importe
 # Éxecution principale
 
 # Configuration de la langue
-langConfig = 'en'
+langConfig = 'fr'
 
 
 def clearCache():  # Fonction de suppression du cache
@@ -69,16 +113,10 @@ def on_press(key):
     except:
         print('Key pressed: not supooorted')
         return False
-
-
+    
+# On release
 def on_release(key):
     pass
 
-# clearCache() # Supprime le cache au début du programme
-
-
-# Collect events until released
 with keyboard.Listener(on_press=on_press, on_release=on_release) as listener:
     listener.join()
-
-# clearCache() # Supprime le cache à la fin du programme
