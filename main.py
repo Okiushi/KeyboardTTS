@@ -22,6 +22,10 @@ except:  # Si le module n'est pas installé, on l'installe et on l'importe
     os.system('python -m pip install magicsound')
     from magicsound import magicsound
 
+# Création d'un dossier cache s'il n'existe pas
+if not os.path.exists('./cache'):
+    os.makedirs('./cache')
+
 # Éxecution principale
 
 # Configuration de la langue
@@ -59,13 +63,16 @@ def on_press(key):
             print('Key pressed: {0}'.format(keychar))
         except:  # Si le fichier n'existe pas, on le crée et on le lit
             try:
-                tts = gTTS(text=keychar, lang=langConfig)
+                try:
+                    tts = gTTS(text=keychar, lang=langConfig)
+                except Exception as e:
+                    print(e)
                 tts.save('cache/key_'+str(unicodeKeychar)+f'{langConfig}.mp3')
                 magicsound('cache/key_'+str(unicodeKeychar) +
                            f'{langConfig}.mp3', False)
                 print('Key pressed: {0} (new file created)'.format(keychar))
-            except:
-                print('Key pressed: not suported')
+            except Exception as e:
+                print('Error: No corresponding file for key {0})'.format(keychar))
     except:
         print('Key pressed: not supooorted')
         return False
