@@ -12,8 +12,6 @@
 
         <Setter Property="Foreground" Value="Black"/>
         <Setter Property="FontSize" Value="50"/>
-        <Setter Property="FontFamily" Value="Arial"/>
-        <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="TextAlignment" Value="Center"/>
         <Setter Property="TextWrapping" Value="Wrap"/>
         <Setter Property="VerticalAlignment" Value="Center"></Setter>

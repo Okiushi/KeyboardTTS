@@ -17,3 +17,5 @@ C:\Users\User\RiderProjects\BlindHelper\BlindHelper\obj\Debug\Styles\TextBlockSt
 C:\Users\User\RiderProjects\BlindHelper\BlindHelper\obj\Debug\App.baml
 C:\Users\User\RiderProjects\BlindHelper\BlindHelper\obj\Debug\Styles\FontSliderTemplate.baml
 C:\Users\User\RiderProjects\BlindHelper\BlindHelper\obj\Debug\Styles\SizeSliderTemplate.baml
+D:\Code\CSharp\KeyboardTTS\BlindHelper\obj\Debug\BlindHelper.exe
+D:\Code\CSharp\KeyboardTTS\BlindHelper\obj\Debug\BlindHelper.pdb

@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BlindHelper"
         mc:Ignorable="d"
-        Title="BlindHelper" Height="720" Width="1280">
-    <Grid ShowGridLines="True">
+        Title="BlindHelper" Height="{Binding WindowHeight, Mode=TwoWay}" Width="{Binding WindowWidth, Mode=TwoWay}"
+        WindowStartupLocation="CenterScreen" Initialized="Window_OnInitialized">
+    
+    <Grid x:Name="MainGrid" ShowGridLines="True">
         <Grid.RowDefinitions>
             <RowDefinition Height="3*"/>
             <RowDefinition Height="2*"/>
@@ -26,9 +28,13 @@
             </Grid.ColumnDefinitions>
 
             <Border Grid.Column="0" Margin="50">
-                <TextBlock Style="{DynamicResource CustomTxtBlock}">
-                    BlindHelper
-                </TextBlock>
+                <Viewbox>
+                    <TextBlock x:Name="LogoTxt" 
+                               Style="{DynamicResource CustomTxtBlock}"
+                               FontFamily="Impact"> <!-- ./#Luciole-Regular  -->
+                        BlindHelper
+                    </TextBlock>
+                </Viewbox>
             </Border>
 
             <Border Grid.Column="1" Margin="100,0,0,0">
@@ -70,16 +76,16 @@
             <Slider Style="{DynamicResource SizeSliderTemplate}"
                 x:Name="SizeSlider"
                 Margin="0"
-                Maximum="6"
-                Minimum="0"
-                TickFrequency="1"
-                Value="6"
+                Maximum="1"
+                Minimum="0.3"
+                TickFrequency="0.1"
+                Value="0.4"
                 TickPlacement="BottomRight"
                 BorderThickness="10"
                 IsSnapToTickEnabled="True"
                 IsMoveToPointEnabled="True"
                 VerticalAlignment="Center"
-                ValueChanged="SizeSlider_OnValueChanged"/>
+                Thumb.DragCompleted="SizeSlider_OnDragCompleted"/>
         </Border>
         
         <Border Grid.Row="2">
@@ -95,7 +101,7 @@
                     IsSnapToTickEnabled="True"
                     IsMoveToPointEnabled="True"
                     VerticalAlignment="Center"
-                    ValueChanged="SizeSlider_OnValueChanged"/>
+                    ValueChanged="FontSlider_OnValueChanged"/>
         </Border>
     </Grid>
 </Window>
