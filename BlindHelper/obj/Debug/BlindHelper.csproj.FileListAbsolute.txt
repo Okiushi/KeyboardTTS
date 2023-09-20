@@ -47,3 +47,4 @@ C:\Users\User\RiderProjects\KeyboardTTS\BlindHelper\bin\Debug\FluentWPF.dll
 C:\Users\User\RiderProjects\KeyboardTTS\BlindHelper\obj\Debug\BlindHelper.csproj.CopyComplete
 C:\Users\User\RiderProjects\KeyboardTTS\BlindHelper\obj\Debug\Styles\Buttons.baml
 C:\Users\User\RiderProjects\KeyboardTTS\BlindHelper\bin\Debug\Main.ico
+C:\Users\User\RiderProjects\KeyboardTTS\BlindHelper\obj\Debug\BlindHelper.csproj.SuggestedBindingRedirects.cache

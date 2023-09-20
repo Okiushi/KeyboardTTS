@@ -5,7 +5,9 @@ using System.Drawing;
 using System.Windows;
 using System.Windows.Controls.Primitives;
 using System.Windows.Forms;
+using System.Windows.Input;
 using System.Windows.Threading;
+using Application = System.Windows.Application;
 using FontFamily = System.Windows.Media.FontFamily;
 
 
@@ -43,13 +45,19 @@ namespace BlindHelper
             new FontFamily(new Uri("pack://application:,,,/Fonts/"), "./#Luciole"),
             new FontFamily(new Uri("pack://application:,,,/Fonts/"), "./#HelveticaNeue")
         };
+        
+        public static string BaseDir = System.IO.Path.GetDirectoryName(
+            System.Reflection.Assembly.GetExecutingAssembly().Location
+            );
 
         public MainWindow()
         {
             InitializeComponent();
             
+            // ShowError(BaseDir + "\\Main.ico");
+            
             NotifyIcon ni = new NotifyIcon();
-            ni.Icon = new Icon("Main.ico");
+            ni.Icon = new Icon(BaseDir + "\\Main.ico");
             ni.Visible = true;
             ni.Click += 
                 delegate
@@ -57,11 +65,18 @@ namespace BlindHelper
                     Show();
                     WindowState = WindowState.Normal;
                 };
+            
+            OnLoaded_WindowsStartup();
 
             DataContext = this;
             WindowHeight = 400;
             WindowWidth = 800;
             CenterWindowOnScreen();
+        }
+        
+        public static void ShowError(string message)
+        {
+            System.Windows.MessageBox.Show(message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
         }
         
         public event PropertyChangedEventHandler PropertyChanged;
@@ -143,12 +158,16 @@ namespace BlindHelper
 
         private void ReduceButton_OnClick(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine(@"Reduce Button Clicked");
+            // Kill logical focus
+            FocusManager.SetFocusedElement(FocusManager.GetFocusScope(ReduceButton), null);
+            // Kill keyboard focus
+            Keyboard.ClearFocus();
+            WindowState = WindowState.Minimized;
         }
 
         private void CloseButton_OnClick(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine(@"Close Button Clicked");
+            Application.Current.Shutdown();
         }
     }
 }
