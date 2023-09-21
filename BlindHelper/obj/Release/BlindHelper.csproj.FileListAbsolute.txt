@@ -50,3 +50,8 @@ C:\Users\User\RiderProjects\KeyboardTTS\BlindHelper\obj\Release\BlindHelper.cspr
 C:\Users\User\RiderProjects\KeyboardTTS\BlindHelper\obj\Release\BlindHelper.csproj.CopyComplete
 C:\Users\User\RiderProjects\KeyboardTTS\BlindHelper\obj\Release\BlindHelper.exe
 C:\Users\User\RiderProjects\KeyboardTTS\BlindHelper\obj\Release\BlindHelper.pdb
+D:\Code\CSharp\KeyboardTTS\BlindHelper\obj\Release\Styles\Buttons.baml
+D:\Code\CSharp\KeyboardTTS\BlindHelper\bin\Release\Fonts\HelveticaNeueMed.ttf
+D:\Code\CSharp\KeyboardTTS\BlindHelper\bin\Release\Main.ico
+D:\Code\CSharp\KeyboardTTS\BlindHelper\bin\Release\FluentWPF.dll
+D:\Code\CSharp\KeyboardTTS\BlindHelper\obj\Release\BlindHelper.csproj.CopyComplete
