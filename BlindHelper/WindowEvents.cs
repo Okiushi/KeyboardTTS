@@ -5,6 +5,13 @@ using System.Reflection;
 using System.Security.Principal;
 using System.Windows;
 using Microsoft.Win32;
+using System.Collections.Generic;
+using System.Runtime.InteropServices;
+using System.Windows.Forms;
+using System.Windows.Input;
+using Application = System.Windows.Application;
+using MessageBox = System.Windows.MessageBox;
+using mrousavy;
 
 namespace BlindHelper
 {
@@ -37,6 +44,11 @@ namespace BlindHelper
         {
             CheckAdmin();
             StartupManager.EnableStartup("BlindHelper", Assembly.GetExecutingAssembly().Location);
+        }
+
+        private void OpenNotifyIcon()
+        {
+            WindowState = WindowState.Normal;
         }
         
         private void CheckAdmin()

@@ -9,7 +9,7 @@ using System.Windows.Input;
 using System.Windows.Threading;
 using Application = System.Windows.Application;
 using FontFamily = System.Windows.Media.FontFamily;
-
+using mrousavy;
 
 namespace BlindHelper
 {
@@ -45,17 +45,14 @@ namespace BlindHelper
             new FontFamily(new Uri("pack://application:,,,/Fonts/"), "./#Luciole"),
             new FontFamily(new Uri("pack://application:,,,/Fonts/"), "./#HelveticaNeue")
         };
-        
-        public static string BaseDir = System.IO.Path.GetDirectoryName(
+
+        private static readonly string BaseDir = System.IO.Path.GetDirectoryName(
             System.Reflection.Assembly.GetExecutingAssembly().Location
             );
-
+        
         public MainWindow()
         {
-            StartPython();
             InitializeComponent();
-            
-            // ShowError(BaseDir + "\\Main.ico");
             
             NotifyIcon ni = new NotifyIcon();
             ni.Icon = new Icon(BaseDir + "\\Main.ico");
@@ -64,6 +61,7 @@ namespace BlindHelper
                 delegate
                 {
                     Show();
+                    ni.Visible = true;
                     WindowState = WindowState.Normal;
                 };
             
@@ -73,6 +71,8 @@ namespace BlindHelper
             WindowHeight = 400;
             WindowWidth = 800;
             CenterWindowOnScreen();
+            StartPython();
+
         }
         
         public static void ShowError(string message)

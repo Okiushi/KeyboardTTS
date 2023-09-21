@@ -59,11 +59,7 @@
                     <Border Grid.Column="0" Margin="50,40">
                         <Button Name="ReduceButton"
                             Style="{StaticResource ButtonBlueStyle}"
-                            Click="ReduceButton_OnClick">
-                            
-                            <!-- <Button.Effect> -->
-                            <!--     <DropShadowEffect Color="Black" Direction="330" ShadowDepth="10" Opacity="0.5" BlurRadius="60" /> -->
-                            <!-- </Button.Effect> -->
+                            Click="ReduceButton_OnClick" Foreground="White" FontSize="25">
                             
                             Reduire
                         </Button>
@@ -72,7 +68,7 @@
                     <Border Grid.Column="1" Margin="50,40">
                         <Button Name="CloseButton"
                             Style="{StaticResource ButtonRedStyle}"
-                            Click="CloseButton_OnClick">
+                            Click="CloseButton_OnClick" Foreground="White" FontSize="25">
                             Fermer
                         </Button>
                     </Border>

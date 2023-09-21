@@ -76,3 +76,4 @@ D:\Code\CSharp\KeyboardTTS\BlindHelper\obj\Debug\BlindHelper.csproj.GenerateReso
 D:\Code\CSharp\KeyboardTTS\BlindHelper\obj\Debug\BlindHelper.csproj.CoreCompileInputs.cache
 D:\Code\CSharp\KeyboardTTS\BlindHelper\obj\Debug\BlindHelper.csproj.CopyComplete
 D:\Code\CSharp\KeyboardTTS\BlindHelper\bin\Debug\python\main.py
+D:\Code\CSharp\KeyboardTTS\BlindHelper\bin\Debug\Hotkeys.dll
