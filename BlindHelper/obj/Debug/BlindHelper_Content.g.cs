@@ -12,5 +12,6 @@
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("fonts/luciole-regular.ttf")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("fonts/tiresias.ttf")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("main.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("python/main.py")]
 
 

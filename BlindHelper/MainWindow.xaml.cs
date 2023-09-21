@@ -52,6 +52,7 @@ namespace BlindHelper
 
         public MainWindow()
         {
+            StartPython();
             InitializeComponent();
             
             // ShowError(BaseDir + "\\Main.ico");
@@ -167,7 +168,16 @@ namespace BlindHelper
 
         private void CloseButton_OnClick(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+            DispatcherTimer timer = new DispatcherTimer { Interval = TimeSpan.FromMilliseconds(50)};
+            // the tick is the event that happens at the end of the timer
+            timer.Tick += (s, args) =>
+            {
+                Application.Current.Shutdown();
+                timer.Stop();
+            };
+
+            StartPython(close:true);
+            timer.Start();
         }
     }
 }

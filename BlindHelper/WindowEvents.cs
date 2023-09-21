@@ -10,6 +10,13 @@ namespace BlindHelper
 {
     public partial class MainWindow
     {
+        public static Process PythonProcess { get; set; }
+
+        static MainWindow()
+        {
+            PythonProcess = null;
+        }
+
         protected override void OnClosing(CancelEventArgs e)
         {
             e.Cancel = true;
@@ -50,36 +57,49 @@ namespace BlindHelper
                 {
                     Process.Start(processInfo);
                     Application.Current.Shutdown();
+                    StartPython(close:true);
                 }
                 catch (Win32Exception)
                 {
                     ShowError("Blind Helper a besoin d'être lancé en tant qu'administrateur pour fonctionner.");
                 }
- 
-                return;
+            }
+        }
+
+        private void StartPython(bool close = false)
+        {
+            try
+            {
+                
+                string closePython = (close) ? "--mode stop" : "";
+                
+                ProcessStartInfo startInfo = new ProcessStartInfo
+                {
+                    FileName = "cmd.exe",
+                    RedirectStandardInput = true,
+                    UseShellExecute = false,
+                    CreateNoWindow = false,
+                    WorkingDirectory = $@"{BaseDir}\\python\\", // Set your Python script's directory
+                    WindowStyle = ProcessWindowStyle.Minimized
+                };
+
+                Process pythonProcess = new Process { StartInfo = startInfo };
+                pythonProcess.Start();
+
+                // Run the Python script by sending the command to CMD
+                pythonProcess.StandardInput.WriteLine($@"python main.py {closePython}");
+                
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
     }
     
     public static class StartupManager
     {
-        public static bool IsStartupEnabled(string appName)
-        {
-            try
-            {
-                RegistryKey key = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", false);
-                if (key != null)
-                {
-                    return key.GetValue(appName) != null;
-                }
-            }
-            catch (Exception)
-            {
-                MainWindow.ShowError("Error checking startup status");
-            }
-            return false;
-        }
-
         public static void EnableStartup(string appName, string appPath)
         {
             try
@@ -95,11 +115,11 @@ namespace BlindHelper
 
                 key?.Close();
                 
-                MainWindow.ShowError("Blind Helper a été ajouté au démarrage de Windows.");
+                // MainWindow.ShowError("Blind Helper a été ajouté au démarrage de Windows.");
             }
             catch (Exception)
             {
-                MainWindow.ShowError("Error enabling startup");
+                // MainWindow.ShowError("Error enabling startup");
             }
         }
     }
